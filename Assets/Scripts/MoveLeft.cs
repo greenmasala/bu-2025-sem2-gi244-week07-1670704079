@@ -6,7 +6,7 @@ public class MoveLeft : MonoBehaviour
     PlayerController Player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         Player = FindFirstObjectByType<PlayerController>();
     }
