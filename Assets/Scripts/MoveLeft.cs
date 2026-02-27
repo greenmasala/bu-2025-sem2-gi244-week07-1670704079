@@ -3,16 +3,25 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     public float speed = 10f;
+    PlayerController Player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Player = FindFirstObjectByType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime);
+        if (!Player.isGameOver)
+        {
+            transform.Translate(speed * Time.deltaTime * Vector3.left);
+        }
+
+        if (transform.position.x < -13)
+        {
+            Destroy(gameObject);
+        }
     }
 }
